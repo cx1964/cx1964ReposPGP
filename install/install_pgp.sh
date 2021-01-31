@@ -3,9 +3,18 @@
 
 sudo apt-get install gnupg2
 
+# install seahorse
+# SeaHorse is a graphical application for managing GPG keys and encryption on GNOME 3 desktop environment. 
+sudo sudo apt-get install seahorse
+
+# install SeaHorse Nautilus File Manager plugin
+sudo apt-get install seahorse-nautilus
+
+# install SeaHorse Nemo File Manager plugin for Cinnamon filemanager Nemo
+# voor geval cinnamon is geinstalleerd
+#sudo add-apt-repository ppa:wasta-linux/cinnamon-testing
+#sudo apt-get update
+#sudo apt-get install nemo-seahorse
+
 # toDo
-1. op oude platform keys exportren
-2. op veilige manier overzetten naar deze machine
-3. keys importeren + dingen doen uit artikel
-   https://makandracards.com/makandra-orga/37763-gpg-extract-private-key-and-import-on-different-machine
 4. python script testen of werkt
