@@ -16,5 +16,5 @@ sudo apt-get install seahorse-nautilus
 #sudo apt-get update
 #sudo apt-get install nemo-seahorse
 
-# toDo
-4. python script testen of werkt
+# tbv installatie python3-venv tbv python sources file
+sudo apt-get install python3-venv

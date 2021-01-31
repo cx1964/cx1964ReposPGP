@@ -8,7 +8,7 @@
 #            source project_pgp_python3.sh
 
 cd /
-export HomeDir="/home/claude/Documents/sources/pgp/cx1964ReposPGPpublic"
+export HomeDir="/home/test01/Documents/sources/pgp/cx1964ReposPGPpublic"
 cd $HomeDir
 echo $HomeDir
 

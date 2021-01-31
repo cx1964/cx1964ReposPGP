@@ -1,7 +1,7 @@
 # filename: 100_install_libs_cx1964ReposPGPpublic.sh
 # functie:  install libraries tbv plot
 
-export HomeDir="/home/claude/Documents/sources/pgp/cx1964ReposPGPpublic"
+export HomeDir="/home/test01/Documents/sources/pgp/cx1964ReposPGPpublic"
 #export HomeDir="/c/sources/sources-prive-experiment/cx1964ReposPlot"
 cd $HomeDir
 echo $HomeDir
