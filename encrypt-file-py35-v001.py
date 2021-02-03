@@ -1,9 +1,10 @@
 # Filenaam:       encrypt_file_py35_v001.py
-# Functie:        Encrypt een file met gpg obv de python library gnupg
+# Functie:        Encrypt een file met gpg obv de python library python-gnupg
 # python versie:  3.x
 #
-# Opmerking:      Onder Ubuntu 16.04 installeer python3 library gpupg
-#                 mbv de Ubuntu package python3-gnugp
+# Opmerking:      Onder Ubuntu 20.04 installeer python3 library python-gnupg
+#                 zie https://pypi.org/project/python-gnupg/
+#                  
 # Uitgangspunt:   Om dit script te laten werken moet gpg zijn geinstalleerd
 #                 en de public en private keys aanwezig zijn.
 
@@ -14,7 +15,7 @@
 # https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 
 
-import gnupg # ubuntu 16.04 installeer de package python3-gnugp
+import gnupg # op ubuntu 20.04 installeer de package mbv pip install python-gnupg
 from pprint import pprint
 # from encrypt_py35 import PASSPHRASE
 

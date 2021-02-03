@@ -19,7 +19,7 @@ source ./env_python3_pgp/bin/activate
 python -m pip install --upgrade pip
 
 # importeer alle benodigde libraries
-pip install gnupg
+pip install python-gnupg
 
 # toon geinstalleerde python libraries
 pip list

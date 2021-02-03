@@ -11,7 +11,7 @@ rem upgrade pip
 python3 -m pip install -U pip
 
 rem importeer alle benodigde libraries
-pip install gnupg
+pip install python-gnupg
 
 rem toon geinstalleerde python libraries
 pip list
