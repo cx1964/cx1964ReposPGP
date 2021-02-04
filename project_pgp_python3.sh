@@ -1,3 +1,4 @@
+#!/bin/bash
 # Filenaam: project_pgp_python3.sh
 # Functie: bash script voor het starten van het project pgp
 #
