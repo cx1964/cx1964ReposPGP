@@ -1,7 +1,7 @@
 # filename: 100_install_libs_cx1964ReposPGPpublic.sh
 # functie:  install libraries tbv plot
 
-export HomeDir="/home/test01/Documents/sources/pgp/cx1964ReposPGPpublic"
+export HomeDir="~/Documents/sources/pgp/cx1964ReposPGPpublic"
 #export HomeDir="/c/sources/sources-prive-experiment/cx1964ReposPlot"
 cd $HomeDir
 echo $HomeDir
@@ -11,7 +11,7 @@ echo $HomeDir
 python3 -m venv env_python3_pgp
 
 # Activeren virtuele env tbv Windows machine met mingw64
-#source /$HomeDir/env_python3_plot/Scripts/activate
+#source /$HomeDir/env_python3_pgp/Scripts/activate
 # Activeren virtuele env tbv Linux shell 
 source ./env_python3_pgp/bin/activate
 
