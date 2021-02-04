@@ -14,7 +14,7 @@
 # http://pythonhosted.org/python-gnupg/
 # https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 
-
+import os
 import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnupg
              # Onder Windows10 geeft deze import de melding "No module named 'gnupg'"
              # Echter als men vanaf een terminal in Visual Code in Windows dit draait krijg je de melding niet 
@@ -29,8 +29,15 @@ from pprint import pprint
 # tbv windows
 # maar werkt niet
 # gpg = gnupg.GPG(gpgbinary='C:\Program Files\WinGPG\x64')
+
 # onder Ubuntu werkt onderstaande:
-gpg = gnupg.GPG()
+# Onder Linux gnupghome is het pad naar de directory ./gnupg/
+# Onder Linux mag gnupghome als ./gnupg/ op de default plek is geinstalleerd
+HomePATH = os.environ["HOME"]
+print("HomePATH", HomePATH)
+gnupgHOME = f"/{HomePATH}/.gnupg/"
+gpg = gnupg.GPG(gnupghome=gnupgHOME)
+
 public_keys = gpg.list_keys()
 private_keys = gpg.list_keys(True)
 
