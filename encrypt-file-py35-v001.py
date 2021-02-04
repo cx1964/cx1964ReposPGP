@@ -21,7 +21,13 @@ from pprint import pprint
 
 
 # zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
-# Toon gpg onformatie van het platform
+# Toon gpg informatie van het platform
+# letop de module python-gnupg is een wraper 
+# Zie: https://pythonhosted.org/python-gnupg/
+# tbv windows
+# maar werkt niet
+# gpg = gnupg.GPG(gpgbinary='C:\Program Files\WinGPG\x64')
+# onder Ubuntu werkt onderstaande:
 gpg = gnupg.GPG()
 public_keys = gpg.list_keys()
 private_keys = gpg.list_keys(True)
