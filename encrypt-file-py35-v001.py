@@ -15,7 +15,9 @@
 # https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 
 
-import gnupg # op ubuntu 20.04 installeer de package mbv pip install python-gnupg
+import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnupg
+             # Onder Windows10 geeft deze import de melding "No module named 'gnupg'"
+             # Echter als men vanaf een terminal in Visual Code in Windows dit draait krijg je de melding niet 
 from pprint import pprint
 # from encrypt_py35 import PASSPHRASE
 
@@ -31,6 +33,7 @@ from pprint import pprint
 gpg = gnupg.GPG()
 public_keys = gpg.list_keys()
 private_keys = gpg.list_keys(True)
+
 print ('public keys:')
 pprint(public_keys)
 print ('private keys:')
