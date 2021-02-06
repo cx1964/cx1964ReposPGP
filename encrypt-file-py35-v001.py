@@ -21,6 +21,15 @@ import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnup
 from pprint import pprint
 # from encrypt_py35 import PASSPHRASE
 
+import platform
+system = platform.system().lower()
+
+# Bepaal OS
+is_windows = system == 'windows'
+is_linux = system == 'linux'
+is_mac = system == 'darwin'
+
+
 
 # zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 # Toon gpg informatie van het platform
@@ -30,12 +39,18 @@ from pprint import pprint
 # maar werkt niet
 # gpg = gnupg.GPG(gpgbinary='C:\Program Files\WinGPG\x64')
 
-# onder Ubuntu werkt onderstaande:
-# Onder Linux gnupghome is het pad naar de directory ./gnupg/
-# Onder Linux mag gnupghome als ./gnupg/ op de default plek is geinstalleerd
-HomePATH = os.environ["HOME"]
-print("HomePATH", HomePATH)
-gnupgHOME = f"/{HomePATH}/.gnupg/"
+
+# Bepaal afhankelijk van OS de gnuhome parameter
+if is_linux:
+  # onder Ubuntu werkt onderstaande:
+  # Onder Linux gnupghome is het pad naar de directory ./gnupg/
+  # Onder Linux mag gnupghome als ./gnupg/ op de default plek is geinstalleerd
+  HomePATH = os.environ["HOME"]
+  print("HomePATH", HomePATH)
+  gnupgHOME = f"/{HomePATH}/.gnupg/"
+elif is_windows:
+  gnupgHOME = ""
+
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
 
 public_keys = gpg.list_keys()
