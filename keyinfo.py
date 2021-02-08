@@ -17,16 +17,26 @@ is_linux = system == 'linux'
 is_mac = system == 'darwin'
 
 
-# Bepaal afhankelijk van OS de gnuhome parameter
 if is_linux:
   # onder Ubuntu werkt onderstaande:
   # Onder Linux gnupghome is het pad naar de directory ./gnupg/
   # Onder Linux mag gnupghome als ./gnupg/ op de default plek is geinstalleerd
+  print("OS Linux")
   HomePATH = os.environ["HOME"]
   print("HomePATH", HomePATH)
   gnupgHOME = f"/{HomePATH}/.gnupg/"
 elif is_windows:
-  gnupgHOME = ""
+  print("OS windows")
+  gnupgHOME = "C:\\Users\\fontacx\\.gnupg\\"
+  print("gnupgHOME", gnupgHOME)
+
+# ToDo
+# debug:
+# Onder windows C:\Users\fontacx\.gnupg bevat de files pubring.kbx en is dit onder Linux ook zo ???
+# Onder Windows werkt nog niet van command line
+
+
+
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
 
@@ -39,6 +49,12 @@ aantalPublicKeys= len([public_keys])
 print("\n")
 print("Aantal private_keys:", aantalPrivateKeys)
 print("Aantal public_keys:" , aantalPublicKeys)
+print("\n")
+
+# debug
+print("\nHet script werkt onder Windows goed tot hier !!!")
+print("Indien script vanuit Visual code wordt gedraait en de python interpreter is ingesteld op env_python3_pgp") 
+
 print("\n")
 print("private_keys[0]['keyid']:" ,private_keys[0]['keyid'] )
 print("private_keys[0]['type']:"  ,private_keys[0]['type'] )

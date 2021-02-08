@@ -45,11 +45,14 @@ if is_linux:
   # onder Ubuntu werkt onderstaande:
   # Onder Linux gnupghome is het pad naar de directory ./gnupg/
   # Onder Linux mag gnupghome als ./gnupg/ op de default plek is geinstalleerd
+  print("OS Linux")
   HomePATH = os.environ["HOME"]
   print("HomePATH", HomePATH)
   gnupgHOME = f"/{HomePATH}/.gnupg/"
 elif is_windows:
-  gnupgHOME = ""
+  print("OS windows")
+  gnupgHOME = "C:\\Users\\fontacx\\.gnupg\\"
+  print("gnupgHOME", gnupgHOME)
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
 
