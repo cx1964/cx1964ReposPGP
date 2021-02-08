@@ -1,6 +1,19 @@
 # file: keyinfo.py
 # functie: verweken van keyinfo
 
+
+# Onder Windows wordt win4gpg gebruikt als officiele
+# zie documentatie https://www.gpg4win.org/features.html
+# Vraag is hoe wordt dit geinstalleerd
+# waar worden de configfile en de keys die met het programma zijn aangemaakt opgeslagen.
+# is dat zoals nu in dit script wordt gebruikt   gnupgHOME = "C:\\Users\\fontacx\\.gnupg\\" ????
+
+# Er is nu geinstalleerd winGPG 1.0.1 en geen win4gpg !!!
+# uitzoeken hoe win4gpg downloaden en installeren
+# Zie https://en.wikipedia.org/wiki/Gpg4win
+
+
+
 import os
 import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnupg
              # Onder Windows10 geeft deze import de melding "No module named 'gnupg'"
