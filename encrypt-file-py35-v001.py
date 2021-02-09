@@ -93,7 +93,6 @@ if is_linux:
                             ,always_trust=True
                             ,output=my_encrypted_file)
 elif is_windows:
-  # Dit werkt nog niet in Windows
   status = gpg.encrypt_file( afile
                             ,recipients=email_recipient 
                             ,output=my_encrypted_file)
