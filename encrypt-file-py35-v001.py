@@ -51,7 +51,10 @@ if is_linux:
   gnupgHOME = f"/{HomePATH}/.gnupg/"
 elif is_windows:
   print("OS windows")
-  gnupgHOME = "C:\\Users\\fontacx\\.gnupg\\"
+  # Onder Windows obv gpg4win versie 3.x
+  # https://www.gpg4win.org/doc/en/gpg4win-compendium_28.html
+  HomePATH = os.environ["APPDATA"]
+  gnupgHOME = HomePATH+'\\'+'gnupg'+'\\'
   print("gnupgHOME", gnupgHOME)
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
