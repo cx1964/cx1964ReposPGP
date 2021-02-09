@@ -4,6 +4,8 @@
 #
 # Opmerking:      Onder Ubuntu 20.04 installeer python3 library python-gnupg
 #                 zie https://pypi.org/project/python-gnupg/
+#                 Onder Windows installeer gpg4win versie 3.x
+#                 Onder Windows zorg voor een schone installatie van gpg4win
 #                  
 # Uitgangspunt:   Om dit script te laten werken moet gpg zijn geinstalleerd
 #                 en de public en private keys aanwezig zijn.
@@ -13,6 +15,7 @@
 # http://pythonhosted.org/gnupg/gnupg.html
 # http://pythonhosted.org/python-gnupg/
 # https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
+# https://www.gpg4win.org/
 
 import os
 import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnupg
@@ -30,15 +33,10 @@ is_linux = system == 'linux'
 is_mac = system == 'darwin'
 
 
-
 # zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 # Toon gpg informatie van het platform
 # letop de module python-gnupg is een wraper 
 # Zie: https://pythonhosted.org/python-gnupg/
-# tbv windows
-# maar werkt niet
-# gpg = gnupg.GPG(gpgbinary='C:\Program Files\WinGPG\x64')
-
 
 # Bepaal afhankelijk van OS de gnuhome parameter
 if is_linux:
