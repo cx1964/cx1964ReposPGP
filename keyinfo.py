@@ -43,16 +43,8 @@ elif is_windows:
   # Onder Windows obv gpg4win versie 3.x
   # https://www.gpg4win.org/doc/en/gpg4win-compendium_28.html
   HomePATH = os.environ["APPDATA"]
-  gnupgHOME = HomePATH+'\\'+'gnupg'+'\\'
+  gnupgHOME = HomePATH+'\\'+'gnupg' # +'\\'
   print("gnupgHOME", gnupgHOME)
-
-# ToDo
-# debug:
-# Onder windows C:\Users\fontacx\.gnupg bevat de files pubring.kbx en is dit onder Linux ook zo ???
-# Onder Windows werkt nog niet van command line
-
-
-
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
 
@@ -67,26 +59,20 @@ print("Aantal private_keys:", aantalPrivateKeys)
 print("Aantal public_keys:" , aantalPublicKeys)
 print("\n")
 
-# debug
-print("\nHet script werkt onder Windows goed tot hier !!!")
-print("Indien script vanuit Visual code wordt gedraait en de python interpreter is ingesteld op env_python3_pgp") 
+if is_linux:
+  print("\n")
+  print("private_keys[0]['keyid']:" ,private_keys[0]['keyid'] )
+  print("private_keys[0]['type']:"  ,private_keys[0]['type'] )
+  print("private_keys[0]['trust']:" ,private_keys[0]['trust'] )
+  print("private_keys[0]['length']:",private_keys[0]['length'] )
+  print("private_keys[0]['uids']:"  ,private_keys[0]['uids'] )
+  print("\n")
+  print("public_keys[0]['keyid']:" ,public_keys[0]['keyid'] )
+  print("public_keys[0]['type']:"  ,public_keys[0]['type'] )
+  print("public_keys[0]['trust']:" ,public_keys[0]['trust'] )
+  print("public_keys[0]['length']:",public_keys[0]['length'] )
+  print("public_keys[0]['uids']:"  ,public_keys[0]['uids'])
 
-print("\n")
-print("private_keys[0]['keyid']:" ,private_keys[0]['keyid'] )
-print("private_keys[0]['type']:"  ,private_keys[0]['type'] )
-print("private_keys[0]['trust']:" ,private_keys[0]['trust'] )
-print("private_keys[0]['length']:",private_keys[0]['length'] )
-print("private_keys[0]['uids']:"  ,private_keys[0]['uids'] )
-print("\n")
-print("public_keys[0]['keyid']:" ,public_keys[0]['keyid'] )
-print("public_keys[0]['type']:"  ,public_keys[0]['type'] )
-print("public_keys[0]['trust']:" ,public_keys[0]['trust'] )
-print("public_keys[0]['length']:",public_keys[0]['length'] )
-print("public_keys[0]['uids']:"  ,public_keys[0]['uids'])
-
-print("type(private_keys)", type(private_keys) )
-
-
-#print("aantal keys in dict private_keys", private_keys.key )
-#for e in private_keys:
-#    print("element: ", e)
+  print("type(private_keys)", type(private_keys) )
+if is_windows:
+  print("Nog uitzoeken voor Windows!!!")
