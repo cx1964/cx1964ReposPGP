@@ -6,6 +6,8 @@
 #                 zie https://pypi.org/project/python-gnupg/
 #                 Onder Windows installeer gpg4win versie 3.x
 #                 Onder Windows zorg voor een schone installatie van gpg4win
+#                 
+#                 Onderstaand voorbeeld werkt nu in Windows en Linux
 #                  
 # Uitgangspunt:   Om dit script te laten werken moet gpg zijn geinstalleerd
 #                 en de public en private keys aanwezig zijn.
@@ -52,7 +54,7 @@ elif is_windows:
   # Onder Windows obv gpg4win versie 3.x
   # https://www.gpg4win.org/doc/en/gpg4win-compendium_28.html
   HomePATH = os.environ["APPDATA"]
-  gnupgHOME = HomePATH+'\\'+'gnupg'+'\\'
+  gnupgHOME = HomePATH+'\\'+'gnupg' #+'\\'
   print("gnupgHOME", gnupgHOME)
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
@@ -78,16 +80,28 @@ open('my-unencrypted.txt', 'w').write('Dit is test data voor de file.')
 # Encrypt de file
 afile=open(my_un_encrypted_file, 'rb')
 # inlezen van de ID van private key
-rkeys = input("Enter key ID from private key: ") 
-status = gpg.encrypt_file( afile
-                          ,rkeys.split()
-                          ,always_trust=True
-                          ,output=my_encrypted_file)
-    
-print ('ok: ', status.ok)
-print ('status: ', status.status)
-print ('stderr: ', status.stderr)
 
+if is_linux:
+  rkeys = input("Enter key ID from private key: ")
+if is_windows:  
+  email_recipient = input("Enter email recipient: ")
+
+if is_linux:
+  # dit werkt in Linux
+  status = gpg.encrypt_file( afile
+                            ,rkeys.split()
+                            ,always_trust=True
+                            ,output=my_encrypted_file)
+elif is_windows:
+  # Dit werkt nog niet in Windows
+  status = gpg.encrypt_file( afile
+                            ,recipients=email_recipient 
+                            ,output=my_encrypted_file)
+
+  # for decrypt zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
+
+print ('ok: '    , status.ok)
+print ('status: ', status.status)
 
 print ("Klaar")
 print ("Unencrypyted file: "+my_un_encrypted_file )
