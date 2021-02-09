@@ -81,15 +81,17 @@ open('my-unencrypted.txt', 'w').write('Dit is test data voor de file.')
 afile=open(my_un_encrypted_file, 'rb')
 # inlezen van de ID van private key
 
+
 if is_linux:
-  rkeys = input("Enter key ID from private key: ")
+  # rkeys = input("Enter key ID from private key: ")
+  email_recipient = input("Enter email recipient: ")
 if is_windows:  
   email_recipient = input("Enter email recipient: ")
 
 if is_linux:
   # dit werkt in Linux
   status = gpg.encrypt_file( afile
-                            ,rkeys.split()
+                            ,recipients=email_recipient #,rkeys.split() # rkeys is specifiek voor Linux
                             ,always_trust=True
                             ,output=my_encrypted_file)
 elif is_windows:
@@ -99,9 +101,11 @@ elif is_windows:
 
   # for decrypt zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/
 
-print ('ok: '    , status.ok)
-print ('status: ', status.status)
-
-print ("Klaar")
 print ("Unencrypyted file: "+my_un_encrypted_file )
-print ("Encrypted file: "+my_encrypted_file )
+if status.ok: 
+  print ("Encrypted file: "+my_encrypted_file )
+
+print ('Return code: ', status.ok)
+print ('Foutmelding: ', status.status)
+
+print ("Klaar")  
