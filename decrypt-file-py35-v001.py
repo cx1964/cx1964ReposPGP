@@ -62,15 +62,21 @@ elif is_windows:
 
 gpg = gnupg.GPG(gnupghome=gnupgHOME)
 
+if is_windows:
+  outputFileName = initDir+'\\my-decrypted.txt'
+elif is_linux:
+  outputFileName = initDir+'/my-decrypted.txt'  
 
 # decrypt selected file
 with open(fileAndPath, 'rb') as encryptedFile:
   status = gpg.decrypt_file(  encryptedFile
                              ,passphrase=passphraseString
-                             ,output='my-decrypted.txt')
+                             ,output=outputFileName)
+print("File:", outputFileName)
+#print("status.stderr:", status.stderr)
 
 if status.ok: 
-  print ("Decrypted file: "+output)
+  print ("Decrypted file: ",outputFileName)
 
 print ('Return code: ', status.ok)
 print ('Foutmelding: ', status.status)
