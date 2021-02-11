@@ -14,10 +14,8 @@ import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnup
 from pprint import pprint
 import tkinter as tk
 from tkinter import filedialog
-
-passphraseString ='test'
-
 import platform
+
 system = platform.system().lower()
 
 # Bepaal OS
@@ -42,6 +40,10 @@ if not fileAndPath:
   exit()
 else:                                          
   print("InputFilenaName: "+fileAndPath)
+
+
+passphraseString = input("Enter passphrase: ")
+print("Gelezen passphrase:", passphraseString)
 
 # Bepaal afhankelijk van OS de gnuhome parameter
 if is_linux:
