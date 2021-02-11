@@ -10,29 +10,26 @@ import gnupg # Op ubuntu 20.04 installeer de package mbv pip install python-gnup
 from pprint import pprint
 # from encrypt_py35 import PASSPHRASE
 
-# ToDo
-# afmaken
-filetypes = [
-             ("Gpg Files", "*.gpg", "BINARY"),
-             ("All Files", "*")]
-
-# show Open File Dialog
-
 # https://stackoverflow.com/questions/9319317/quick-and-easy-file-dialog-in-python
+# vanaf python3 3.7 geen module installeren voor tkinter
 import tkinter as tk
 from tkinter import filedialog
 root = tk.Tk()
 root.withdraw()
-file_path = filedialog.askopenfilename()
-            # tkinter.filedialog.askopenfilename()
-print("InputFilenaName: "+file_path)
-
-#opendialog = tkinter.filedialog.Open(parent=master, filetypes=self.filetypes)
-#base="bla.gpg"
 # Get current directory
-#dir = os.getcwd()
-#fileName = opendialog.show(initialdir=dir, initialfile=self.base)
-
-
+initDir = os.getcwd()
+print("current directory:",initDir)
+fileTypes = [
+             ("Gpg Files", "*.gpg", "TEXT"),
+             ("All Files", "*")]
+# show Open File Dialog             
+fileAndPath = filedialog.askopenfilename( title='Select encrypted file'
+                                         ,initialdir=initDir
+                                         ,filetypes=fileTypes)
+if not fileAndPath:
+  print("Niets geselecteerd")  
+  exit()
+else:                                          
+  print("InputFilenaName: "+file_path)
 
 # hier code tbv decrypt de inputfile
