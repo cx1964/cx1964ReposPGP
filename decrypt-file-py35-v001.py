@@ -3,6 +3,8 @@
 #                 De encryppted file kan mbv een FileDialog geselecteerd worden.
 # python versie:  > 3.7
 # opmerking:      vanaf python3 3.7 geen module installeren voor tkinter
+#                 Deze code werkt alleen nogmaar onder Linux Ubuntu 20.04 !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#                 Onder Windows10 geeft dit programma tijdens het decrypt een foutmelding
 #
 # Documentatie:   zie https://www.saltycrane.com/blog/2011/10/python-gnupg-gpg-example/  
 #                     https://stackoverflow.com/questions/9319317/quick-and-easy-file-dialog-in-python
